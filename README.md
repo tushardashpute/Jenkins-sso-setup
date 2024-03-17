@@ -4,7 +4,6 @@ Pre-requisites:
 
 - You need to be an Azure admin or have the admin rights to add the API permissions required for this setup.
 - Your Jenkins server has enabled HTTPS
-- https://github.com/tushardashpute/sso_eks_authentication
   
 1- Initial Jenkins setup
 
