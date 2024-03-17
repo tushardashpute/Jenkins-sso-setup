@@ -4,14 +4,27 @@ Pre-requisites:
 
 - You need to be an Azure admin or have the admin rights to add the API permissions required for this setup.
 - Your Jenkins server has enabled HTTPS
-
+- https://github.com/tushardashpute/sso_eks_authentication
+  
 1- Initial Jenkins setup
 
 Go to Manage Jenkins then Manage Jenkins, and find Azure AD plugin. Once installed, you need to restart your Jenkins.
 
 ![image](https://github.com/tushardashpute/Jenkins-sso-setup/assets/74225291/af56a620-8508-4382-8e48-72b265b48e5c)
 
-2- Azure AD setup
+2. Create ALB and attach target group to the jenkins instance.
+
+
+![image](https://github.com/tushardashpute/Jenkins-sso-setup/assets/74225291/0b2f5c2f-06fd-49f0-ad02-238a098f1de3)
+
+![image](https://github.com/tushardashpute/Jenkins-sso-setup/assets/74225291/2a2e95e8-6ddd-487b-9f6f-afa8fdc7e6f6)
+
+![image](https://github.com/tushardashpute/Jenkins-sso-setup/assets/74225291/118e0a2a-6418-47cc-88ec-4400ad9d67ff)
+
+![image](https://github.com/tushardashpute/Jenkins-sso-setup/assets/74225291/47cce919-d24a-403f-a79d-861666f09d6f)
+
+
+3- Azure AD setup
 
 -  Go to your Azure Portal and select Azure Active Directory, then click on App registrations, then New registration
 
@@ -22,7 +35,10 @@ Go to Manage Jenkins then Manage Jenkins, and find Azure AD plugin. Once install
 
 - Give a name to your application. If you have many Jenkins running, name your Jenkins accordingly (see above) so you can make a difference between the different settings.
 - Choose who can use the application. In a private IT environment, you should only allow your AAD (single tenant) tenant to be used.
-- Choose Client Application (Web, iOS, ..) and finally register your application.
+- Choose Web and finally register your application. To choose web application we must jenkins url of the type https.
+
+  ![image](https://github.com/tushardashpute/Jenkins-sso-setup/assets/74225291/b9835377-f1d4-499f-9f65-bd9e94f6f968)
+
 - In the application page, go to Authentication and add the URI of your Jenkins instance. If your Jenkins URI is internal, just put the internal URI that your internal DNS can resolve.
 
 ![image](https://github.com/tushardashpute/Jenkins-sso-setup/assets/74225291/729c7c4c-9f48-480a-b79b-f3afd0b2a018)
@@ -71,3 +87,5 @@ If you face any issues with the security, you can always go to your config.xml f
 6. Start Jenkins
 
 At this step, your Jenkins is in the unsecured mode where everyone gets full access. Fix the issue and enable again the authorizationStrategy and securityRealm.
+
+![image](https://github.com/tushardashpute/Jenkins-sso-setup/assets/74225291/7fddbde8-aa6a-4261-aaa6-7da20a866415)
