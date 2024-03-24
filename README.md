@@ -20,6 +20,12 @@ Go to Manage Jenkins then Manage Jenkins, and find Azure AD plugin. Once install
 
 ![image](https://github.com/tushardashpute/Jenkins-sso-setup/assets/74225291/118e0a2a-6418-47cc-88ec-4400ad9d67ff)
 
+To keep the port 80 listening, you have to install and run nginx in your cluster:
+
+    sudo yum install nginx -y
+    sudo systemctl start nginx
+    sudo systemctl status nginx
+
 ![image](https://github.com/tushardashpute/Jenkins-sso-setup/assets/74225291/47cce919-d24a-403f-a79d-861666f09d6f)
 
 
